@@ -5,7 +5,7 @@ import net.serenitybdd.core.steps.UIInteractionSteps
 import org.example.com.saucedemo.pages.LoginPage
 import org.example.com.saucedemo.utility.UserType
 
-open class LoginActions : UIInteractionSteps() {
+open class AuthenticationActions : UIInteractionSteps() {
 
     private val loginPage: LoginPage = LoginPage()
 
@@ -15,5 +15,11 @@ open class LoginActions : UIInteractionSteps() {
         loginPage.insertUsername(user.username)
         loginPage.insertPassword(user.password)
         loginPage.clickLoginButton()
+    }
+
+    @Step("Log out")
+    fun logout() {
+        loginPage.openMenu()
+        loginPage.clickOnLogOut()
     }
 }
